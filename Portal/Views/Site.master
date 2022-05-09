@@ -1,0 +1,176 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Main.Master" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Portal.Views.Site" %>
+
+<asp:Content ID="ContentTitle" ContentPlaceHolderID="Title" runat="server">
+    <asp:ContentPlaceHolder ID="Title" runat="server" />
+</asp:Content>
+
+<asp:Content ID="ContentPageLevelPluginsCSS" ContentPlaceHolderID="PageLevelPluginsCSS" runat="server">
+    <asp:ContentPlaceHolder ID="PageLevelPluginsCSS" runat="server" />
+</asp:Content>
+
+<asp:Content ID="ContentPageLevelPluginsJS" ContentPlaceHolderID="PageLevelPluginsJS" runat="server">
+    <asp:ContentPlaceHolder ID="PageLevelPluginsJS" runat="server" />
+</asp:Content>
+
+<asp:Content ID="ContentPageLevelScripts" ContentPlaceHolderID="PageLevelScripts" runat="server">
+    <asp:ContentPlaceHolder ID="PageLevelScripts" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPDF" runat="server">
+    <div></div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentBody" runat="server">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner ">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+
+                <a href="/">
+                   <img src="/Views/Ventas/src/LogoLight.png" style="width:150px;" alt="logo" class="logo-default" />
+                </a>
+                
+            </div>
+
+</div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+        <div class="page-bar">
+                <ul class="nav navbar-nav pull-top">
+                    <li class="active"><a href="/">Inicio</a></li>
+                    <li class="dropdown" id="MenuServicio" runat="server">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios
+                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li id="SolicitudRefaccion" runat="server"><a href="/Servicios/SolicitudDeRefaccion">Solicitud de refacciones</a></li>
+                               <%-- <li id="PageAgregaOxigeno" runat="server"><a href="/Servicios/AgregaOxigeno?Pacientes=">Agregar oxigeno</a></li>
+                                <li id="PageVerOxi" runat="server"><a href="/Servicios/VerOxigeno">Ver entregas oxigeno</a></li>--%>
+                            </ul>
+                    </li>
+                    
+                    <%--<li class="dropdown" id="MenuGetsion" runat="server">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestión
+                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li id="GestRelacionTractCaj" runat="server"><a href="/Gestion/RelacionCajaTracto">Relacion Tracto x Caja</a></li>
+                                <li id="GestionMed" runat="server"><a href="/Gestion/GestionTractos">Gestion Tractos</a></li>
+                                <li id="CortesInterConsulta" runat="server"><a href="/Gestion/CortesInterConsulta">Inventario Cajas</a></li>
+
+                            </ul>
+                    </li>--%>
+                     <li class="dropdown" id="MenuCompras" runat="server">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Compras
+                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li id="SolicitudCompra" runat="server"><a href="/Compras/SolicitudCompra">Solicitud de Compra</a></li>
+                                <li id="AutorizacionCompra" runat="server"><a href="#">Autorizar Solicitud de Compra</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown" id="MenuAdministrador" runat="server">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administración
+                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li id="AltaUsuarios" runat="server"><a href="/Account/CrearUsuario">Crea Usuarios</a></li>
+                                <li id="Li1" runat="server"><a href="#">Baja de Usuarios</a></li>
+                            </ul>
+                    </li>
+
+                    <li class="dropdown" id="MenuVentas" runat="server">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ventas
+                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li id="Cotizador" runat="server"><a href="/Ventas/Cotizador">Cotizador</a></li>
+                                <li id="Cotizaciones" runat="server"><a href="/Ventas/Cotizaciones">Cotizaciones</a></li>
+                            </ul>
+                    </li>
+
+
+                    <%--<li class="dropdown" id="MenuEnfermeria" runat="server">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Enfermeria
+                        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li id="ControlConsultasPoli" runat="server"><a href="/Enfermeria/ControlConsultasPoli">Control de Consultas en Policlinica</a></li>
+                            </ul>
+                    </li>--%>
+                </ul>
+           </div>
+
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN PAGE TOP -->
+            <div class="page-top">
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="separator hide"></li>
+                        <!-- BEGIN USER LOGIN DROPDOWN -->
+                        <li class="dropdown dropdown-user dropdown-dark">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <span class="username username-hide-on-mobile">
+                                    <asp:LoginName ID="LoginName" runat="server" />
+                                </span>
+                                <asp:Image ID="ImgAvatar" CssClass="img-circle" ImageUrl="/Assets/layouts/layout4/img/avatar9.jpg" runat="server" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="/Views/Account/Logout.aspx" runat="server">
+                                        <i class="icon-key"></i>
+                                        Cerrar Sesión
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END PAGE TOP -->
+        
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN HEADER & CONTENT DIVIDER -->
+    <div class="clearfix" />
+    <!-- END HEADER & CONTENT DIVIDER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper" >
+              
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-content">
+                
+                <!-- BEGIN PAGE HEAD-->
+                <div class="page-head" style="margin-top: -16px;">
+                   
+                    <!-- BEGIN PAGE TITLE -->
+                    <div class="page-title">
+                        <h1></h1>
+                    </div>
+                    <!-- END PAGE TITLE -->
+                </div>
+                <!-- END PAGE HEAD-->
+                <!-- BEGIN PAGE BREADCRUMB -->
+              <%--  <div id="page-breadcrumb-content">
+                </div>--%>
+                <!-- END PAGE BREADCRUMB -->
+                <asp:ContentPlaceHolder ID="ContentBody" runat="server" />
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">&copy; <%= DateTime.Now.ToString("yyyy") %> SOLUGLOB IKON S.A. DE C.V.</div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+
+</asp:Content>
+

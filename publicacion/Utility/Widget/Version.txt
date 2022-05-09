@@ -1,0 +1,5 @@
+﻿Version: 1.0.0.0
+Author: Emmanuel Rico Aguilar
+Contact: erico@soluglobikon.mx
+License: SOLUGLOB IKON S.A DE C.V.
+Creation date: 2016-04-06
